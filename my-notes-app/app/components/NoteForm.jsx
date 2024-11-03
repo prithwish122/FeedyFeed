@@ -1,12 +1,13 @@
 "use client";
+
 import { useState } from 'react';
-import { useWeb3 } from '../hooks/useWeb3';
-import { ethers,BrowserProvider } from 'ethers';
+// import { useWeb3 } from '../hooks/useWeb3';
+import { ethers, BrowserProvider } from 'ethers';
 import contractABI from "../abi/contractABI.json"
 
 
 export default function NoteForm() {
-    const { contract, account } = useWeb3();
+    // const { contract, account } = useWeb3();
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -21,28 +22,39 @@ export default function NoteForm() {
 
         setLoading(true);
         // try {
-            const provider = new BrowserProvider(window.ethereum);
-            await provider.send("eth_requestAccounts", []); 
-            const signer = provider.getSigner();
-            const contract = new ethers.Contract("0xD19e3D3A2753f5f869C8C6522a21802b957259bc", contractABI, signer);
+        // Initialize provider and signer
+        // Initialize provider
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+
+        // Get the signer for the first account
+        const signer = await provider.getSigner(); // Usually gets the first signer automatically if no address is passed
+
+        // Get the address of the connected signer
+        const address = await signer.getAddress();
+        console.log(address, "============");
+
+        // Set up the contract
+        const contract = new ethers.Contract("0xD19e3D3A2753f5f869C8C6522a21802b957259bc", contractABI, signer);
+
+        // Send the transaction to create a note
+        const createNodeTxHash = await (await contract.createNote(content)).wait();
+        console.log("Transaction Hash:", createNodeTxHash);
 
 
-            console.log(contractABI)
-            const createNodeTxHash = await (await contract.createNote("pruth", "lol")).wait();
-
-            // const transaction = await contract.createNote(content); // Send the transaction
-            // const receipt = await transaction.wait(); // Wait for confirmation
-            // console.log("Note created successfully:", receipt);
+        // const transaction = await contract.createNote(content); // Send the transaction
+        // const receipt = await transaction.wait(); // Wait for confirmation
+        // console.log("Note created successfully:", receipt);
 
 
-            // Wait for confirmation
-            // console.log("Note created successfully:", receipt);
-            // console.log(content, account, "================")
-            // await (await contract.methods.createNote(content).send({ from: account })).wait();
-            // Specify gasPrice for non-EIP-1559 networks
-            setContent(''); // Clear the input field after submission
-            alert('Note created!');
-    
+        // Wait for confirmation
+        // console.log("Note created successfully:", receipt);
+        // console.log(content, account, "================")
+        // await (await contract.methods.createNote(content).send({ from: account })).wait();
+        // Specify gasPrice for non-EIP-1559 networks
+        setContent(''); // Clear the input field after submission
+        alert('Note created!');
+
         // } catch (error) {
         //     console.error("Error creating note:", error);
         //     alert('Failed to create note.');
