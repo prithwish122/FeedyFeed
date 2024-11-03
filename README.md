@@ -1,4 +1,4 @@
-﻿# EDU-FEED
+﻿# FeedyFeed
 
  ## Vision :
  
@@ -26,7 +26,7 @@ Referred By HACKQUEST
 
 1. Clone the repository:
     ```bash
-    https://github.com/prithwish122/EDU-FEED.git
+    https://github.com/prithwish122/FeedyFeed.git
     cd my-notes-app
     ```
 
