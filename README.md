@@ -2,12 +2,11 @@
 
  ## Vision :
  
- Empowering educators and students with transparent, decentralized feedback to foster continuous improvement and innovation on Educhain.
-
+ AIA Chain’s feedback app: secure, anonymous, tokenized user feedback.
+ 
  ## Description: 
  
-Educhain's decentralized feedback app revolutionizes educational feedback by providing a transparent, secure platform where students and educators can exchange insights. Through blockchain technology, feedback becomes immutable and traceable, ensuring authenticity and fostering a culture of continuous improvement. This app enhances educational interactions with real-time, reliable feedback mechanisms
-Referred By HACKQUEST
+A decentralized feedback app on AIA Chain could allow users to provide feedback on products, services, or experiences securely and transparently. The app would leverage blockchain for immutable and verifiable feedback, ensuring data authenticity and preventing tampering. Each feedback submission could be associated with a unique token, incentivizing users with rewards for providing constructive input. Additionally, feedback could be anonymized to encourage honest responses, while businesses and service providers could access aggregated insights to enhance their offerings. The app could also feature voting on feedback, prioritizing the most helpful comments for further analysis.
 
 ## TECH STACK :
 
