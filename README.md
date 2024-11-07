@@ -8,6 +8,9 @@
  
 A decentralized feedback app on AIA Chain could allow users to provide feedback on products, services, or experiences securely and transparently. The app would leverage blockchain for immutable and verifiable feedback, ensuring data authenticity and preventing tampering. Each feedback submission could be associated with a unique token, incentivizing users with rewards for providing constructive input. Additionally, feedback could be anonymized to encourage honest responses, while businesses and service providers could access aggregated insights to enhance their offerings. The app could also feature voting on feedback, prioritizing the most helpful comments for further analysis.
 
+## Contract Address: 
+0xD19e3D3A2753f5f869C8C6522a21802b957259bc
+
 ## TECH STACK :
 
 **Nextjs**
